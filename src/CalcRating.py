@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-from Types import DataType
-
-RatingType = dict[str, float]
+from Types import DataType, RatingType
 
 
 class CalcRating:
@@ -11,9 +9,12 @@ class CalcRating:
         self.rating: RatingType = {}
 
     def calc(self) -> RatingType:
+        self.rating = {}
         for key in self.data:
-            self.rating[key] = 0.0
-            for subject in self.data[key]:
-                self.rating[key] += subject[1]
-            self.rating[key] /= len(self.data[key])
+            scores = self.data[key]
+            if not scores:
+                self.rating[key] = 0.0
+                continue
+            total = sum(score for _, score in scores)
+            self.rating[key] = total / len(scores)
         return self.rating
