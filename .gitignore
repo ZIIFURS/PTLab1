@@ -1,0 +1,50 @@
+# Виртуальное окружение Anaconda / venv
+tplab1-env/
+env/
+venv/
+ENV/
+env*/
+venv*/
+
+# Кэши Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Кэш pytest
+.pytest_cache/
+.cache/
+.coverage
+htmlcov/
+.coverage.*
+
+# IDE: PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Временные файлы
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log
+
+# Базы данных
+*.sqlite3
+*.db
+
+# Сборка / дистрибуция
+build/
+dist/
+*.egg-info/
+
+# Локальные настройки
+.env
+.local
