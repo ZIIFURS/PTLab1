@@ -1,5 +1,6 @@
 # test/test_YamlDataReader.py
 import pytest
+import yaml
 from src.Types import DataType
 from src.YamlDataReader import YamlDataReader
 from pathlib import Path
@@ -10,20 +11,25 @@ class TestYamlDataReader:
     @pytest.fixture
     def sample_yaml_content(self) -> str:
         return """
-        Иванов Иван Иванович:
-          математика: 80
-          программирование: 90
-          литература: 76
-        Петров Петр Петрович:
-          математика: 100
-          социология: 90
-          химия: 61
-        """
+Иванов Иван Иванович:
+  математика: 80
+  программирование: 90
+  литература: 76
+Петров Петр Петрович:
+  математика: 100
+  социология: 90
+  химия: 61
+Андрей Андреев Андреевич:
+  математика: 90
+  физика: 90
+  информатика: 90
+  химия: 90
+""".strip()
 
     @pytest.fixture
     def yaml_file(self, sample_yaml_content, tmp_path) -> str:
         file_path = tmp_path / "data.yaml"
-        file_path.write_text(sample_yaml_content.strip(), encoding='utf-8')
+        file_path.write_text(sample_yaml_content, encoding='utf-8')
         return str(file_path)
 
     @pytest.fixture
@@ -38,6 +44,12 @@ class TestYamlDataReader:
                 ("математика", 100),
                 ("социология", 90),
                 ("химия", 61)
+            ],
+            "Андрей Андреев Андреевич": [
+                ("математика", 90),
+                ("физика", 90),
+                ("информатика", 90),
+                ("химия", 90),
             ]
         }
 
