@@ -117,23 +117,8 @@ jobs:
       - uses: actions/setup-python@v4
       - pip install -r requirements.txt
       - pycodestyle src test
-      - PYTHONPATH=./:./src/ pytest test
+      - PYTHONPATH=./;./src/ pytest test
 ```
-
-**Статус**: ✅ **Все тесты проходят** (11/11)
-
-## Результаты индивидуального задания
-
-| Пункт | Задание | Выполнено |
-|-------|---------|-----------|
-| 1 | Лицензия | ✅ MIT License |
-| 2 | `.gitignore` | ✅ Исключены env, кэши |
-| **3** | Наследник `DataReader` (YAML) | ✅ `YamlDataReader.py` + тесты |
-| **4** | Класс расчёта (вариант 9) | ✅ `PerfectStudentFinder.py` + тесты |
-| 5 | UML-диаграмма | ✅ PlantUML выше |
-| 6 | Анализ и выводы | ✅ Ниже |
-
-**Ветка разработки**: `feature/variant-9` → merged в `main`
 
 ## Выводы по работе
 
